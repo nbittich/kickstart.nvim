@@ -3,6 +3,9 @@ return {
   branch = "main", -- HACK: force neo-tree to checkout `main` for initial v3 migration since default branch has changed
   dependencies = { "MunifTanjim/nui.nvim" },
   cmd = "Neotree",
+  keys = {
+    { "<leader>b", ":Neotree filesystem reveal toggle<CR>", silent = true },
+  },
   init = function() vim.g.neo_tree_remove_legacy_commands = true end,
  config = function ()
       -- If you want icons for diagnostic errors, you'll need to define them somewhere:
@@ -284,7 +287,6 @@ return {
       })
 
       vim.cmd([[nnoremap \ :Neotree reveal<cr>]])
-      vim.keymap.set('n', '<C-b>', '<Cmd>Neotree toggle<CR>')
-      vim.cmd(':Neotree')
-    end
+    end,
+
 }
