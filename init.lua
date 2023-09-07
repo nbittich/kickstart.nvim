@@ -142,14 +142,14 @@ require('lazy').setup({
     },
   },
 
-  {
-    -- Theme inspired by Atom
-    'navarasu/onedark.nvim',
-    priority = 1000,
-    config = function()
-      vim.cmd.colorscheme 'onedark'
-    end,
-  },
+-- {
+  -- Theme inspired by Atom
+--  'navarasu/onedark.nvim',
+--    priority = 1000,
+--   config = function()
+--    vim.cmd.colorscheme 'onedark'
+--  end,
+-- },
 
   {
     -- Set lualine as statusline
@@ -157,8 +157,8 @@ require('lazy').setup({
     -- See `:help lualine.txt`
     opts = {
       options = {
-        icons_enabled = false,
-        theme = 'onedark',
+        icons_enabled = true,
+        theme = 'catppuccin', --onedark
         component_separators = '|',
         section_separators = '',
       },
