@@ -1,10 +1,11 @@
 return {
     "catppuccin/nvim",
-    name = "catppuccin", priority = 1000,
+    name = "catppuccin",
+    priority = 1000,
     -- you can do it like this with a config function
     config = function()
-      require("catppuccin").setup({
-           flavour = "mocha",
+        require("catppuccin").setup({
+            flavour = "mocha",
             term_colors = true,
             transparent_background = true,
             no_italic = false,
@@ -25,7 +26,7 @@ return {
             highlight_overrides = {
                 mocha = function(C)
                     return {
-                      --  TabLineSel = { bg = C.pink },
+                        --  TabLineSel = { bg = C.pink },
                         NotifyBackground = { bg = C.pink },
                         CmpBorder = { fg = C.surface2 },
                         Pmenu = { bg = C.none },
@@ -44,7 +45,7 @@ return {
 
 
         })
-      vim.cmd.colorscheme 'catppuccin'
+        vim.cmd.colorscheme 'catppuccin'
     end,
 
 }
