@@ -463,12 +463,11 @@ end
 local servers = {
   jdtls = { filetypes = { 'java' } },
   tsserver = { filetypes = { 'typescript', 'javascript' } },
-  -- clangd = {},
+  clangd = { filetypes = { 'c', 'cpp' } },
+  pyright = { filetypes = { 'python' } },
   -- gopls = {},
-  -- pyright = {},
   -- rust_analyzer = {},
-  -- tsserver = {},
-  -- html = { filetypes = { 'html', 'twig', 'hbs'} },
+  html = { filetypes = { 'html', 'twig', 'hbs' } },
 
   lua_ls = {
     Lua = {
