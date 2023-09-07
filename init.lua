@@ -232,8 +232,11 @@ require('lazy').setup({
 -- Set highlight on search
 vim.o.hlsearch = false
 
+
 -- Make line numbers default
 vim.wo.number = true
+
+vim.wo.scrolloff = 0
 
 -- Enable mouse mode
 vim.o.mouse = 'a'
@@ -397,6 +400,13 @@ vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = 'Go to next diagnos
 vim.keymap.set('n', '<leader>t', vim.diagnostic.open_float, { desc = 'Open floating diagnostic message' })
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostics list' })
 
+-- disable virtual text
+vim.diagnostic.config({
+  virtual_text = {
+    severity = { min = vim.diagnostic.severity.WARN }
+  }
+})
+
 -- [[ Configure LSP ]]
 --  This function gets run when an LSP connects to a particular buffer.
 local on_attach = function(_, bufnr)
@@ -539,6 +549,7 @@ cmp.setup {
     end, { 'i', 's' }),
   },
   sources = {
+    { name = 'crates' },
     { name = 'nvim_lsp' },
     { name = 'luasnip' },
   },
