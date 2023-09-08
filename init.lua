@@ -329,7 +329,8 @@ vim.keymap.set('n', '<leader>sr', require('telescope.builtin').resume, { desc = 
 -- See `:help nvim-treesitter`
 require('nvim-treesitter.configs').setup {
   -- Add languages to be installed here that you want installed for treesitter
-  ensure_installed = { 'c', 'cpp', 'go', 'lua', 'python', 'rust', 'java', 'tsx', 'javascript', 'typescript', 'vimdoc',
+  ensure_installed = { 'c', 'cpp', 'go', 'lua', 'python', 'rust', 'php', 'java', 'tsx', 'javascript', 'typescript',
+    'vimdoc',
     'vim' },
 
   -- Autoinstall languages that are not installed. Defaults to false (but you can change for yourself!)
@@ -465,6 +466,8 @@ local servers = {
   tsserver = { filetypes = { 'typescript', 'javascript' } },
   clangd = { filetypes = { 'c', 'cpp' } },
   pyright = { filetypes = { 'python' } },
+  intelephense = { filetypes = { 'php' } },
+  jsonls = { filetypes = { 'json' } },
   -- gopls = {},
   -- rust_analyzer = {},
   html = { filetypes = { 'html', 'twig', 'hbs' } },
