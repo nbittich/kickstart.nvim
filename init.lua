@@ -235,12 +235,11 @@ vim.o.hlsearch = false
 
 -- Make line numbers default
 vim.wo.number = true
-
+vim.wo.relativenumber = true
 vim.wo.scrolloff = 0
 
 -- Enable mouse mode
 vim.o.mouse = 'a'
-
 -- Sync clipboard between OS and Neovim.
 --  Remove this option if you want your OS clipboard to remain independent.
 --  See `:help 'clipboard'`
@@ -257,7 +256,7 @@ vim.o.ignorecase = true
 vim.o.smartcase = true
 
 -- Keep signcolumn on by default
-vim.wo.signcolumn = 'yes'
+vim.wo.signcolumn = 'no'
 
 -- Decrease update time
 vim.o.updatetime = 250
@@ -331,6 +330,7 @@ require('nvim-treesitter.configs').setup {
   -- Add languages to be installed here that you want installed for treesitter
   ensure_installed = { 'c', 'cpp', 'go', 'lua', 'python', 'rust', 'php', 'java', 'tsx', 'javascript', 'typescript',
     'vimdoc',
+    'vue',
     'vim' },
 
   -- Autoinstall languages that are not installed. Defaults to false (but you can change for yourself!)
@@ -468,6 +468,7 @@ local servers = {
   pyright = { filetypes = { 'python' } },
   intelephense = { filetypes = { 'php' } },
   jsonls = { filetypes = { 'json' } },
+  vuels = { filetypes = { 'vue' } },
   -- gopls = {},
   -- rust_analyzer = {},
   html = { filetypes = { 'html', 'twig', 'hbs' } },
