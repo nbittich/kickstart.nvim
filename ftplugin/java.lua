@@ -1,6 +1,7 @@
 local jdtls_status, jdtls = pcall(require, "jdtls")
 local mason_status, mason = pcall(require, "mason-registry")
-
+local root_markers = { ".git", "pom.xml" }
+local root_dir = require("jdtls.setup").find_root(root_markers)
 if not jdtls_status then
   vim.notify("jdtls not found")
   return
@@ -30,22 +31,37 @@ local config = {
     "-Dlog.protocol=true",
     "-Dlog.level=ALL",
     "-javaagent:" .. install_path .. "/lombok.jar",
-    "-Xmx1g",
+    "-Xms1g",
     "--add-modules=ALL-SYSTEM",
     "--add-opens",
     "java.base/java.util=ALL-UNNAMED",
     "--add-opens",
     "java.base/java.lang=ALL-UNNAMED",
-
     "-jar",
-    vim.fn.glob(install_path .. "/plugins/org.eclipse.equinox.launcher_*.jar", true),
-
+    vim.fn.glob(install_path .. "/plugins/org.eclipse.equinox.launcher_*.jar"),
     "-configuration",
     install_path .. "/config_linux",
-
     "-data",
     workspace_dir,
   },
+  root_dir = root_dir,
+  settings = {
+    java = {
+      signatureHelp = { enabled = true },
+      import = { enabled = true },
+      rename = { enabled = true },
+      format = {
+        settings = {
+          url = './formatting.xml',
+          profile = 'GoogleStyle',
+        }
+      }
+    }
+  },
+  init_options = {
+    bundles = {}
+  }
+
 
 }
 
